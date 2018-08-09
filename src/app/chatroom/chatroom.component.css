@@ -1,0 +1,54 @@
+.addChat
+{
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    background-color: #4A394B;
+    margin-top: 0%;
+    position: absolute;
+}
+.chatHeader
+{
+    position: absolute;
+    height: 10%;
+    width: 80%;
+    margin-left: 20%;
+    background-color:whitesmoke;
+}
+.chatLocation
+{
+    position: absolute;
+    height: 90%;
+    width: 80%;
+    margin-top: 5%;
+    margin-left: 20%;
+    background-color:whitesmoke;
+}
+.channelcolor
+{
+    margin-top: 100px;
+    color: grey;
+}
+#btnLocation
+{  
+    margin-top: -55px;
+    color: grey;
+    margin-left: 235px;
+}
+#chatHeader_textArea
+{
+    width: 235px;
+    margin-left: 700px;
+    margin-top: 15px;
+}
+#chatLocation_textArea
+{
+    width:90%;
+    margin-left: 30px;
+    margin-top: 550px;
+}
+.fa-telegram
+{
+    margin-left: 93%;
+    margin-bottom: 0px;
+}

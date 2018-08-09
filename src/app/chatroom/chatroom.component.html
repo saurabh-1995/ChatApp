@@ -1,0 +1,28 @@
+<div class="addChat">
+  <input type="text" class="form-control" placeholder="Search Channels" name="search">
+  <h3 class="channelcolor">
+    Channels
+  </h3>
+  <input type="text" class="form-control" [(ngModel)]="myChat" placeholder="Add Channels" name="addchannels">
+  <i ng-class="ui-icon-circle-plus">
+  </i>
+  <button type="button" (click)="myChannel()" id="btnLocation" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-plus-sign">
+    </span>
+  </button>
+  <h3 class="channelcolor">
+    Direct Messages
+  </h3>
+  <i ng-class="ui-icon-circle-plus">
+  </i>
+  <button type="button" id="btnLocation" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-plus-sign"></span>
+  </button>
+</div>
+<div class="chatHeader">
+  <input type="text" id="chatHeader_textArea" class="form-control" placeholder="Search" name="search">
+</div>
+<div class="chatLocation">
+  <input type="text" id="chatLocation_textArea" [(ngModel)]="textmessage" class="form-control" placeholder="Message" name="search">
+  <button type="button" (click)="myMessage()" class="fa fa-telegram"></button>
+</div>
