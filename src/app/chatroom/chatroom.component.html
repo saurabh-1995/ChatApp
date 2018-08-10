@@ -3,26 +3,25 @@
   <h3 class="channelcolor">
     Channels
   </h3>
-  <input type="text" class="form-control" [(ngModel)]="myChat" placeholder="Add Channels" name="addchannels">
+  <input type="text" class="form-control" [(ngModel)]="chatChannels" placeholder="Add Channels" name="addchannels">
   <i ng-class="ui-icon-circle-plus">
   </i>
-  <button type="button" (click)="myChannel()" id="btnLocation" class="btn btn-default btn-sm">
+  <button (click)="mainChannel()" id="btnLocation" class="btn btn-default btn-sm">
     <span class="glyphicon glyphicon-plus-sign">
     </span>
   </button>
-  <h3 class="channelcolor">
-    Direct Messages
-  </h3>
-  <i ng-class="ui-icon-circle-plus">
-  </i>
-  <button type="button" id="btnLocation" class="btn btn-default btn-sm">
-    <span class="glyphicon glyphicon-plus-sign"></span>
-  </button>
+  <ul *ngFor="let Channels of channelListArray">
+    <li>{{Channels}}</li>
+  </ul>
 </div>
 <div class="chatHeader">
-  <input type="text" id="chatHeader_textArea" class="form-control" placeholder="Search" name="search">
+  <input type="text" class="form-control" placeholder="Search Channels" name="search">
 </div>
 <div class="chatLocation">
   <input type="text" id="chatLocation_textArea" [(ngModel)]="textmessage" class="form-control" placeholder="Message" name="search">
-  <button type="button" (click)="myMessage()" class="fa fa-telegram"></button>
+  <button type="button" (click)="initialMessage()" class="fa fa-telegram"></button>
+  <ul *ngFor="let Message of messageList">
+    <li>{{Message}}</li>
+  </ul>
+
 </div>
