@@ -36,8 +36,6 @@ export class ApiCallService {
     return this.http.get(this.message, httpOptions).pipe(map(data => data));
   }
 
-
-
 }
 const httpOptions = {
   headers: new HttpHeaders({

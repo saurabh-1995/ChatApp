@@ -2,9 +2,9 @@
   position: absolute;
   width: 20%;
   height: 100%;
-  background-color:blue;
+  background-color: steelblue;
   margin-top: 0%;
-  position: absolute;
+  overflow: auto;
 }
 
 .chatHeader {
@@ -22,6 +22,7 @@
   margin-top: 5%;
   margin-left: 20%;
   background-color:wheat;
+  overflow: hidden;
 }
 
 .channelcolor {
@@ -33,6 +34,7 @@
   margin-top: -55px;
   color: grey;
   margin-left: 235px;
+  overflow:auto;
 }
 
 #chatHeader_textArea {

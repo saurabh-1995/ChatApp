@@ -34,11 +34,9 @@ export class ChatroomComponent implements OnInit {
   displayChannelList() {
     this.service.displayChannel().subscribe(reserve => {
       var len = reserve.channels.length;
-      console.log(len);
-      let index;
-      for (index; index < len; index++) {
-        this.channelListArray[index] = reserve.channel[index].unique_name;
-        console.log(this.channelListArray);
+      for (let index = 0; index < len; index++) {
+        
+        this.channelListArray[index] = reserve.channels[index].unique_name;
       }
     },
       err => {
@@ -49,7 +47,7 @@ export class ChatroomComponent implements OnInit {
   initialMessage() {
     this.service.messageenter(this.textmessage).subscribe(reserve => {
       this.groupMsg = reserve.body;
-      console.log(reserve);
+      //console.log(reserve.body);
 
     });
     err => {
@@ -59,11 +57,14 @@ export class ChatroomComponent implements OnInit {
   messageList = [];
   messageListArray() {
     this.service.showallMessages().subscribe(reserve => {
-      console.log(reserve.messages.length);
-      length = reserve.messages.length;
+      var len = reserve.message.length;
+      
+
       let index;
-      for (index; index < length; index++) {
-        this.messageListArray[index] = reserve.messages[index].body;
+      for (let index = 0; index < reserve.message.length; index++) {
+        
+        this.messageList[index] = reserve.message[index].body;
+        console.log(index);
       }
 
     },
