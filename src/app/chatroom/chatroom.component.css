@@ -2,8 +2,8 @@
   position: absolute;
   width: 20%;
   height: 100%;
-  background-color: steelblue;
-  margin-top: 0%;
+  background-color: #4A394B;
+  top: 0%;
   overflow: auto;
 }
 
@@ -11,18 +11,18 @@
   position: absolute;
   height: 10%;
   width: 80%;
-  margin-left: 20%;
+  left: 20%;
   background-color: whitesmoke;
+  top: 0%;
 }
 
 .chatLocation {
   position: absolute;
-  height: 90%;
+  height: 83%;
   width: 80%;
-  margin-top: 5%;
-  margin-left: 20%;
-  background-color:wheat;
-  overflow: hidden;
+  top: 10%;
+  left: 20%;
+  background-color: wheat;
 }
 
 .channelcolor {
@@ -33,8 +33,7 @@
 #btnLocation {
   margin-top: -55px;
   color: grey;
-  margin-left: 235px;
-  overflow:auto;
+  margin-left: 220px;
 }
 
 #chatHeader_textArea {
@@ -45,11 +44,47 @@
 
 #chatLocation_textArea {
   width: 90%;
-  margin-left: 30px;
-  margin-top: 550px;
+  height: 30px;
+  margin-top: 0px;
 }
 
 .fa-telegram {
-  margin-left: 93%;
-  margin-bottom: 0px;
+  margin-top: -500px;
+}
+
+.listcolor {
+  color: darkgrey;
+}
+
+.chatInput {
+  top: 93%;
+  position: absolute;
+  left: 20%;
+  width: 80%;
+  height: 7%;
+}
+
+.fa-plus {
+  margin-left: 10px;
+  margin-top: 0px;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  padding: 5px;
+  background-color: lightgray;
+}
+
+.fa-paper-plane-o {
+  font-size: 20px;
+  margin-top: 0px;
+}
+
+.foundChannel_style {
+  color: yellow;
+  margin-left: 30px;
+}
+
+.role_Style {
+  color: tomato;
+  margin-left: 30px;
 }

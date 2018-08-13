@@ -1,27 +1,41 @@
 <div class="addChat">
-  <input type="text" class="form-control" placeholder="Search Channels" name="search">
+  <input type="text" class="form-control" [(ngModel)]="isChannelFound" placeholder="Search Channels" name="search">
+  <i ng-class="ui-icon-circle-plus">
+  </i>
+  <button type="button" (click)="searchChannel()" id="btnLocation" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-plus-sign">
+    </span>
+  </button>
+  <span class="foundChannel_style">{{channelFound}}</span>
+  <button type="button" (click)="joinChannel()">join</button>
+
   <h3 class="channelcolor">
     Channels
   </h3>
   <input type="text" class="form-control" [(ngModel)]="chatChannels" placeholder="Add Channels" name="addchannels">
   <i ng-class="ui-icon-circle-plus">
   </i>
-  <button (click)="mainChannel()" id="btnLocation" class="btn btn-default btn-sm">
+  <button type="button" (click)="mainChannel()" id="btnLocation" class="btn btn-default btn-sm">
     <span class="glyphicon glyphicon-plus-sign">
     </span>
   </button>
-  <ul *ngFor="let Channels of channelListArray">
-    <li>{{Channels}}</li>
+  <ul *ngFor="let channels of channelListArray">
+    <li (click)="getAllMsg(channels.links.messages)" class="listcolor">{{channels.unique_name}}</li>
   </ul>
 </div>
 <div class="chatHeader">
-  
+  <input type="text" id="chatHeader_textArea" class="form-control" placeholder="Search" name="search">
 </div>
 <div class="chatLocation">
-  <input type="text" id="chatLocation_textArea" [(ngModel)]="textmessage" class="form-control" placeholder="Message" name="search">
-  <button type="button" (click)="initialMessage()" class="fa fa-telegram"></button>
-  <ul *ngFor="let Message of messageList">
-    <li>{{Message}}</li>
-  </ul>
+  <ul *ngFor ="let messages of groupMsg">
+  <span>{{messages}}</span>
+</ul>
+</div>
+<div class="chatInput">
+  <i class="fa fa-plus"></i>
+  <input type="text" id="chatLocation_textArea" [(ngModel)]="textmessage" placeholder="Message" name="search">
+  <i (click)="sendMsg()" class="fa fa-paper-plane-o"></i>
+
+
 
 </div>

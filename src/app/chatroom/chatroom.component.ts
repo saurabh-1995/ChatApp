@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiCallService } from '../api-call.service';
+import { Router } from '../../../node_modules/@angular/router';
+
 
 
 @Component({
@@ -9,70 +11,124 @@ import { ApiCallService } from '../api-call.service';
 })
 export class ChatroomComponent implements OnInit {
 
-  constructor(private service: ApiCallService) { }
+  constructor(private service: ApiCallService, private routes:Router) { }
   public chatChannels = "";
-  public textmessage = "";
+  public textmessage: String = "";
+  public isChannelFound: string = "";
+  public groupMsg = [];
   groupObject;
-  groupMsg;
-
-  ngOnInit() {
-    this.displayChannelList();
-  }
 
 
   mainChannel() {
+
     this.service.createChannel(this.chatChannels).subscribe(reserve => {
-      console.log(reserve);
+
+
       this.groupObject = reserve.unique_name;
+      this.displayChannelList();
+      console.log(reserve);
     },
       err => {
         console.log(err);
       }
     );
   }
-  channelListArray = [];
+  //searchChannel(){
+
+  //}
+  channelListArray: any = [];
   displayChannelList() {
+    console.log("abcd")
     this.service.displayChannel().subscribe(reserve => {
-      var len = reserve.channels.length;
-      for (let index = 0; index < len; index++) {
-        
-        this.channelListArray[index] = reserve.channels[index].unique_name;
-      }
+      this.channelListArray = reserve.channels;
+      console.log(this.channelListArray);
     },
       err => {
         console.log(err);
       }
     )
   }
-  initialMessage() {
-    this.service.messageenter(this.textmessage).subscribe(reserve => {
-      this.groupMsg = reserve.body;
-      //console.log(reserve.body);
+  searchChannelArray: any = [];
+  channel: string = "";
+  lengthArray;
+  channelFound = "";
+  channelIdFound = "";
+  searchChannel() {
+    this.service.searchChannelService().subscribe(reserve => {
+      for (let index = 0; index < reserve.channels.length; index++) {
+        this.searchChannelArray.push(reserve.channels[index].unique_name);
+        this.lengthArray = this.searchChannelArray.length;
+        for (let index = 0; index < this.lengthArray; index++) {
+          console.log(this.lengthArray);
+          if (this.searchChannelArray[index] == this.isChannelFound) {
+            this.channelFound = this.isChannelFound;
+            this.channelIdFound = reserve.channels[index].sid;
+            console.log(this.channelFound);
+            console.log(this.channelIdFound);
+            break;
+          }
+          else {
 
-    });
-    err => {
-      console.log(err);
-    }
-  }
-  messageList = [];
-  messageListArray() {
-    this.service.showallMessages().subscribe(reserve => {
-      var len = reserve.message.length;
-      
-
-      let index;
-      for (let index = 0; index < reserve.message.length; index++) {
-        
-        this.messageList[index] = reserve.message[index].body;
-        console.log(index);
+            this.channelFound = "Channel Not Found";
+            console.log("Channel Not Found");
+          }
+        }
       }
-
+    },
+      err => {
+        console.log();
+      })
+  }
+  joinChannel() {
+    console.log("abc")
+    this.service.joinChannelService(this.channelIdFound).subscribe(reserve => {
+      console.log(reserve);
     },
       err => {
         console.log(err);
-      });
+      })
   }
 
+  location;
+  sendMsg() {
+    this.service.sendMsgService(this.textmessage, this.location).subscribe(reserve => {
+      console.log(reserve);
+      this.getAllMsg(this.location);
+    },
+      err => {
+        console.log(err);
+      })
+  }
 
+  msgCounting;
+  getAllMsg(location) {
+    console.log("akjgjk")
+    this.location = location;
+    this.service.getAllMsgService(location).subscribe(reserve => {
+      this.groupMsg = reserve.messages;
+      this.msgCounting = reserve.messages.length;
+      console.log("total" + this.msgCounting);
+      for (let index = 0; index < this.msgCounting; index++) {
+        this.groupMsg[index] = reserve.messages[index].body;
+      }
 
+    }),
+      err => {
+        console.log(err);
+      }
+  }
+  ngOnInit() {
+    this.displayChannelList();
+  }
 }
+
+  // initialMessage(){
+  //   this.service.messageenter(this.textmessage).subscribe(reserve =>{
+  //     this.groupMsg=reserve.body;
+  //     },
+  //   err =>{
+  //     console.log(err);
+  //   }
+  //   )
+  //   }  
+
