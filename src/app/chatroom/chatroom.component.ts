@@ -17,6 +17,10 @@ export class ChatroomComponent implements OnInit {
   public isChannelFound: string = "";
   public groupMsg = [];
   groupObject;
+  public id =localStorage.getItem('id');
+  public name =localStorage.getItem('name');
+  public email=localStorage.getItem('email');
+
 
 
   mainChannel() {
@@ -102,7 +106,7 @@ export class ChatroomComponent implements OnInit {
 
   msgCounting;
   getAllMsg(location) {
-    console.log("akjgjk")
+
     this.location = location;
     this.service.getAllMsgService(location).subscribe(reserve => {
       this.groupMsg = reserve.messages;
@@ -117,8 +121,13 @@ export class ChatroomComponent implements OnInit {
         console.log(err);
       }
   }
+  logout(){
+    localStorage.clear();
+    this.routes.navigate(['/home']);
+  }
   ngOnInit() {
     this.displayChannelList();
+    
   }
 }
 

@@ -23,6 +23,7 @@
   top: 10%;
   left: 20%;
   background-color: wheat;
+  overflow: auto;
 }
 
 .channelcolor {
@@ -31,9 +32,10 @@
 }
 
 #btnLocation {
-  margin-top: -55px;
+  margin-top: -58px;
   color: grey;
-  margin-left: 220px;
+  margin-left: 237px;
+  
 }
 
 #chatHeader_textArea {
@@ -83,8 +85,28 @@
   color: yellow;
   margin-left: 30px;
 }
-
-.role_Style {
-  color: tomato;
-  margin-left: 30px;
+.receiver{
+ 
+  background-color: powderblue;
+  float: left; 
+  overflow: hidden;
+  width: 50%;
+  padding: 10px;
+}
+.sender{
+  background-color:powderblue;
+  float:right;
+  width:50%;
+  overflow: hidden;
+  padding: 10px;
+}
+#username{
+  color: antiquewhite;
+  margin-left: 10px;
+}
+#btnID
+{
+  padding-top: 0px;
+  
+  margin-left: 1000px;
 }

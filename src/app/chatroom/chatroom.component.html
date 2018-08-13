@@ -1,13 +1,12 @@
 <div class="addChat">
   <input type="text" class="form-control" [(ngModel)]="isChannelFound" placeholder="Search Channels" name="search">
-  <i ng-class="ui-icon-circle-plus">
-  </i>
+ 
   <button type="button" (click)="searchChannel()" id="btnLocation" class="btn btn-default btn-sm">
-    <span class="glyphicon glyphicon-plus-sign">
+    <span class="fa fa-search">
     </span>
   </button>
   <span class="foundChannel_style">{{channelFound}}</span>
-  <button type="button" (click)="joinChannel()">join</button>
+  <button type="button" (click)="joinChannel()">+</button>
 
   <h3 class="channelcolor">
     Channels
@@ -24,11 +23,24 @@
   </ul>
 </div>
 <div class="chatHeader">
+  
   <input type="text" id="chatHeader_textArea" class="form-control" placeholder="Search" name="search">
+  <div class="logoutbtn">
+    <button id="btnID"(click)="logout()" class="w3-bar-item w3-button w3-teal">Logout</button>
+    
+  </div>
+  
+
+  
 </div>
+
 <div class="chatLocation">
-  <ul *ngFor ="let messages of groupMsg">
-  <span>{{messages}}</span>
+  <ul>
+  <li *ngFor="let messages of groupMsg" style="margin: 10px" [ngClass]='{"sender":(messages.from == email),
+  "receiver":(messages.from != email)}'>
+  {{messages.from}}<br/>
+  {{messages}}
+  </li>
 </ul>
 </div>
 <div class="chatInput">
