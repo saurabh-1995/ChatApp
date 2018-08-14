@@ -15,8 +15,6 @@ export class ApiCallService {
   idservice: string = "IS8cded33916e544a19b99ab3675cfc1ec"
   idchannel: string = "CH489ea084b28d45b8b5560c58e96c2099"
   identity: string = localStorage.getItem("Identity");
-
-  message: string = "https://chat.twilio.com/v2/Services/IS8cded33916e544a19b99ab3675cfc1ec/Channels/CH489ea084b28d45b8b5560c58e96c2099"
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',

@@ -13,6 +13,7 @@ import { ChatroomComponent } from './chatroom/chatroom.component';
 import { ApiCallService } from './api-call.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 const routes: Routes = [
@@ -21,12 +22,12 @@ const routes: Routes = [
     component: ChatroomComponent
   },
   {
-    path: '**',
+    path: '',
     component: SignInComponent
   },
   {
-    path: '',
-    component: SignInComponent
+    path: '**',
+    component: NotfoundComponent
   }
 ];
 export function getAuthServiceConfigs() {
@@ -47,6 +48,7 @@ export function getAuthServiceConfigs() {
     AppComponent,
     SignInComponent,
     ChatroomComponent,
+    NotfoundComponent,
     
   ],
   imports: [

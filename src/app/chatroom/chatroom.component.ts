@@ -121,7 +121,7 @@ export class ChatroomComponent implements OnInit {
   }
   logout() {
     localStorage.clear();
-    this.routes.navigate(['/home']);
+    this.routes.navigate(['/']);
   }
   ngOnInit() {
     this.displayChannelList();

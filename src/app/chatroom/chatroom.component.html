@@ -23,7 +23,7 @@
   </ul>
 </div>
 <div class="chatHeader">
-  
+  <h4>ChatApp</h4>
   <input type="text" id="chatHeader_textArea" class="form-control" placeholder="Search" name="search">
   <div class="logoutbtn">
     <button id="btnID"(click)="logout()" class="w3-bar-item w3-button w3-teal">Logout</button>
@@ -38,7 +38,7 @@
   <ul>
   <li *ngFor="let messages of groupMsg" style="margin: 10px" [ngClass]='{"sender":(messages.from == email),
   "receiver":(messages.from != email)}'>
-  {{messages.from}}<br/>
+  {{messages.from}}{{email}}<br/>
   {{messages}}
   </li>
 </ul>

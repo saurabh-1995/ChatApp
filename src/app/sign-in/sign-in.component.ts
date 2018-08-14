@@ -16,6 +16,10 @@ export class SignInComponent implements OnInit {
   constructor(private socialAuthService: AuthService, private routes: Router, private service: ApiCallService) { }
 
   ngOnInit() {
+    if(localStorage.getItem('Identity')!=null)
+    {
+      
+    }
   }
 
   public socialSignIn(socialPlatform: string) {

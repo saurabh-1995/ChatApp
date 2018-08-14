@@ -9,7 +9,7 @@
 
 .chatHeader {
   position: absolute;
-  height: 10%;
+  height: 14%;
   width: 80%;
   left: 20%;
   background-color: whitesmoke;
@@ -20,7 +20,7 @@
   position: absolute;
   height: 83%;
   width: 80%;
-  top: 10%;
+  top: 13%;
   left: 20%;
   background-color: wheat;
   overflow: auto;
@@ -59,7 +59,7 @@
 }
 
 .chatInput {
-  top: 93%;
+  top: 95%;
   position: absolute;
   left: 20%;
   width: 80%;
@@ -108,4 +108,9 @@
 .w3-bar-item{
   margin-top: -60px;
   margin-left: 90%;
+}
+.h4
+{
+  margin-top: 0%;
+  padding: 0%;
 }
