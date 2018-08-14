@@ -87,7 +87,7 @@
 }
 .receiver{
  
-  background-color: powderblue;
+  background-color: lightgreen;
   float: left; 
   overflow: hidden;
   width: 50%;
@@ -104,9 +104,8 @@
   color: antiquewhite;
   margin-left: 10px;
 }
-#btnID
-{
-  padding-top: 0px;
-  
-  margin-left: 1000px;
+
+.w3-bar-item{
+  margin-top: -60px;
+  margin-left: 90%;
 }

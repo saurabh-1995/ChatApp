@@ -11,21 +11,21 @@ import { Router } from '../../../node_modules/@angular/router';
 })
 export class ChatroomComponent implements OnInit {
 
-  constructor(private service: ApiCallService, private routes:Router) { }
+  constructor(private service: ApiCallService, private routes: Router) { }
   public chatChannels = "";
   public textmessage: String = "";
   public isChannelFound: string = "";
   public groupMsg = [];
   groupObject;
-  public id =localStorage.getItem('id');
-  public name =localStorage.getItem('name');
-  public email=localStorage.getItem('email');
+  
+  public name = localStorage.getItem('name');
+  public email = localStorage.getItem('Identity');
 
 
 
-  mainChannel() {
+  createChannel() {
 
-    this.service.createChannel(this.chatChannels).subscribe(reserve => {
+    this.service.createChannelService(this.chatChannels).subscribe(reserve => {
 
 
       this.groupObject = reserve.unique_name;
@@ -37,13 +37,11 @@ export class ChatroomComponent implements OnInit {
       }
     );
   }
-  //searchChannel(){
 
-  //}
   channelListArray: any = [];
   displayChannelList() {
-    console.log("abcd")
-    this.service.displayChannel().subscribe(reserve => {
+
+    this.service.displayChannelService().subscribe(reserve => {
       this.channelListArray = reserve.channels;
       console.log(this.channelListArray);
     },
@@ -84,7 +82,7 @@ export class ChatroomComponent implements OnInit {
       })
   }
   joinChannel() {
-    console.log("abc")
+
     this.service.joinChannelService(this.channelIdFound).subscribe(reserve => {
       console.log(reserve);
     },
@@ -121,23 +119,15 @@ export class ChatroomComponent implements OnInit {
         console.log(err);
       }
   }
-  logout(){
+  logout() {
     localStorage.clear();
     this.routes.navigate(['/home']);
   }
   ngOnInit() {
     this.displayChannelList();
-    
+
   }
 }
 
-  // initialMessage(){
-  //   this.service.messageenter(this.textmessage).subscribe(reserve =>{
-  //     this.groupMsg=reserve.body;
-  //     },
-  //   err =>{
-  //     console.log(err);
-  //   }
-  //   )
-  //   }  
+
 

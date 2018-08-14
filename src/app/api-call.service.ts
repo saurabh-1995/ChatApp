@@ -29,31 +29,26 @@ export class ApiCallService {
     const body = new HttpParams().set('FriendlyName', 'Chat');
     return this.http.post(this.url, body.toString(), this.httpOptions);
   }
-  createChannel(mynewchannel): Observable<any> {
+  createChannelService(mynewchannel): Observable<any> {
     return this.http.post(this.channel, 'UniqueName=' + mynewchannel, this.httpOptions);
   }
-  displayChannel(): Observable<any> {
+  displayChannelService(): Observable<any> {
     return this.http.get(this.channel, this.httpOptions).pipe(map(data => data));
   }
   searchChannelService(): Observable<any> {
     return this.http.get(this.channel, this.httpOptions).pipe(map(data => data));
   }
   joinChannelService(channelId): Observable<any> {
-    return this.http.post(this.channel+"/" + channelId +"/Members", "ChannelSid="+channelId+
-    "&Identity="+this.identity+"&ServiceSid="+this.idservice,this.httpOptions);
+    return this.http.post(this.channel + "/" + channelId + "/Members", "ChannelSid=" + channelId +
+      "&Identity=" + this.identity + "&ServiceSid=" + this.idservice, this.httpOptions);
   }
-  sendMsgService(textmessage,sendMsg): Observable<any> {
+  sendMsgService(textmessage, sendMsg): Observable<any> {
     return this.http.post(sendMsg,
       "ChannelSid=" + this.idchannel + "&ServiceSid=" + this.idservice + "&Body=" + textmessage + "&From=" + this.identity, this.httpOptions);
   }
-  //  messageenter(myMessages): Observable<any>
-  //  {
-  //   return this.http.post("https://chat.twilio.com/v2/Services/" + this.idservice + "/Channels/" + this.idchannel+"/Messages","ChannelSid=" 
-  //   + this.idchannel + "&ServiceSid=" + this.idservice + "&Body=" +myMessages,httpOptions);
-  //   //console.log(myMessages);
-  // }
+
   getAllMsgService(totalMsg): Observable<any> {
-    return this.http.get(totalMsg,this.httpOptions).pipe(map(data => data));
+    return this.http.get(totalMsg, this.httpOptions).pipe(map(data => data));
   }
 
 

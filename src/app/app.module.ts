@@ -14,13 +14,14 @@ import { ApiCallService } from './api-call.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+
 const routes: Routes = [
   {
     path: 'chatRoom',
     component: ChatroomComponent
   },
   {
-    path: 'home',
+    path: '**',
     component: SignInComponent
   },
   {
@@ -45,7 +46,8 @@ export function getAuthServiceConfigs() {
   declarations: [
     AppComponent,
     SignInComponent,
-    ChatroomComponent
+    ChatroomComponent,
+    
   ],
   imports: [
     BrowserModule,

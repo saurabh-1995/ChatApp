@@ -25,26 +25,14 @@ export class SignInComponent implements OnInit {
       socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
       this.socialAuthService.signIn(socialPlatformProvider).then(
         (userData) => {
-          var serve = this.service.getData();
-          serve.subscribe(data => console.log(data));
-          this.routes.navigate(['chatRoom']);
+           console.log(socialPlatform+" sign in data : " , userData);
+          
+          localStorage.setItem("name", userData.name);
+          localStorage.setItem("Identity", userData.email);
+          this.routes.navigate(['/chatRoom']);
 
-          //console.log(socialPlatform + " " , userData);
-          // Now sign-in with userData
-          // ...
-        }
-      );
-    }
-    // else if(socialPlatform == "twitter"){
-    //   socialPlatformProvider = TwitterLoginProvider.PROVIDER_ID;
-    //   this.socialAuthService.signIn(socialPlatformProvider).then(
-    //     (userData) => {
-    //       console.log(socialPlatform + " " , userData);
-    //       // Now sign-in with userData
-    //       // ...
-    //     }
-    //   );
-    // }
+    });  
 
+  }
   }
 }
